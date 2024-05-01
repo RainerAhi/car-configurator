@@ -6,6 +6,7 @@ import { useFrame } from "@react-three/fiber";
 export default function Car(props) {
   const { nodes, materials } = useGLTF("./911-transformed.glb");
   const { carColor } = useCustomization();
+  const { breakColor } = useCustomization();
   const carRef = useRef();
 
   const [rotateCar, setRotateCar] = useState(true);
@@ -43,7 +44,9 @@ export default function Car(props) {
             receiveShadow
             geometry={nodes.Cylinder000_3.geometry}
             material={materials['Material.001']}
-          />
+          >
+            <meshStandardMaterial color={breakColor.color} /> 
+          </mesh>
         </group>
         <group position={[0, 0, 0.029]}>
           <mesh
@@ -69,7 +72,9 @@ export default function Car(props) {
             receiveShadow
             geometry={nodes.Cylinder001_3.geometry}
             material={materials['Material.001']}
-          />
+          >
+            <meshStandardMaterial color={breakColor.color} /> 
+          </mesh>
         </group>
         <group position={[0, -0.003, 0.007]}>
           <mesh
@@ -95,17 +100,15 @@ export default function Car(props) {
           castShadow
           receiveShadow
           geometry={nodes.boot001_0.geometry}
-          material={materials.paint}
         >
-          <meshStandardMaterial color={carColor.color} /> 
+          <meshStandardMaterial metalness={ 1 } roughness={ 1 } color={carColor.color} /> 
         </mesh>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.boot002_0.geometry}
-          material={materials.paint}
         >
-          <meshStandardMaterial color={carColor.color} /> 
+          <meshStandardMaterial metalness={ 1 } roughness={ 1 } color={carColor.color} /> 
         </mesh>
         <mesh
           castShadow
@@ -124,9 +127,8 @@ export default function Car(props) {
           castShadow
           receiveShadow
           geometry={nodes.boot005_0.geometry}
-          material={materials.paint}
         >
-          <meshStandardMaterial color={carColor.color} /> 
+          <meshStandardMaterial metalness={ 1 } roughness={ 1 } color={carColor.color} /> 
         </mesh>
         <mesh
           castShadow
@@ -144,9 +146,8 @@ export default function Car(props) {
           castShadow
           receiveShadow
           geometry={nodes.boot008_0.geometry}
-          material={materials.paint}
         >
-          <meshStandardMaterial color={carColor.color} /> 
+          <meshStandardMaterial metalness={ 1 } roughness={ 1 } color={carColor.color} /> 
         </mesh>
         <mesh
           castShadow

@@ -9,11 +9,11 @@ export default function Experience() {
   return (
     <>
       <SoftShadows intensity={ 20 } />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.25} />
       <directionalLight shadow-bias={ -0.01 } castShadow position={[2.5, 8, 5]} intensity={1.5} shadow-mapSize={1024}>
         <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
       </directionalLight>
-      <pointLight position={[-10, 0, -20]} color="white" intensity={1} />
+      <pointLight position={[-10, 0, -20]} color="white" intensity={0.25} />
       <pointLight position={[0, -10, 0]} intensity={1} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.65, 0]} receiveShadow>
           <planeGeometry args={[100, 100]} />

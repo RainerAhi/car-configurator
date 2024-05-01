@@ -3,7 +3,6 @@
 @font-face {
   font-family: 'Porsche';
   src: url('/porsche.ttf') format('truetype');
-  /* You may also need other formats like woff, woff2, etc. */
 }
 
 
@@ -85,7 +84,7 @@ section {
 .configurator {
   position: absolute;
   width: 20vw;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -93,6 +92,7 @@ section {
   font-family: "Inter", sans-serif;
   transform: translate(25vw, -30vh);
   border-radius: 25px;
+  justify-content: space-around;
 }
 
 .configurator-section {
@@ -108,6 +108,7 @@ section {
   font-weight: 600;
   font-size: 1.75vw;
   color: #111111;
+  margin-bottom: 1.5vw;
 }
 
 .configurator-section-values {
@@ -152,9 +153,11 @@ section {
 
 .item-label {
   text-align: center;
-  font-weight: bold;
-  font-size: 12px;
-  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.75vw;
+  color: #111111;
+  margin-top: 0.25vw;
 }
 
 

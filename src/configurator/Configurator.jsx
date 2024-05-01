@@ -10,6 +10,9 @@ export default function Configurator () {
     carColors,
     carColor,
     setCarColor,
+    breakColors,
+    breakColor,
+    setBreakColor
   } = useCustomization();
 
   const { camera } = useThree();
@@ -88,8 +91,6 @@ export default function Configurator () {
       });
   };
 
-  const { gl } = useThree();
-
   return (
     <>
       <OrbitControls minPolarAngle={Math.PI / -2} maxPolarAngle={Math.PI / 2} enableZoom={ false } enableRotate={ true } enablePan={ false } />
@@ -112,6 +113,26 @@ export default function Configurator () {
                       item.color === carColor.color ? "item-active" : ""
                     }`}
                     onClick={() => setCarColor(item)}
+                  >
+                    <div
+                      className="item-dot"
+                      style={{ backgroundColor: item.color }}
+                    />
+                    <div className="item-label">{item.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="configurator-section">
+              <div className="configurator-section-title">Break Colors</div>
+              <div className="configurator-section-values">
+                {breakColors.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`item ${
+                      item.color === breakColor.color ? "item-active" : ""
+                    }`}
+                    onClick={() => setBreakColor(item)}
                   >
                     <div
                       className="item-dot"
