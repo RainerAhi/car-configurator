@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'Porsche';
+  src: url('/porsche.ttf') format('truetype');
+  /* You may also need other formats like woff, woff2, etc. */
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  background-color: #fefeff;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fefeff;
+}
+
+.navigation {
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 8%;
+  background-color: #fefeff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.navigation h1 {
+  color: #111111;
+  font-size: 1.25vw;
+  letter-spacing: 0.25vw;
+  font-family: 'Porsche', sans-serif;
+  font-weight: 500;
+}
+
+.fa-solid {
+  color: #111111;
+}
+
+.fa-x {
+  align-self: flex-end;
+  padding-top: 1vw;
+}
+
+.make-visible {
+  position: absolute;
+  cursor: pointer;
+  color: #111111;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 50px;
+  border: 1px solid #111111;
+  transform: translate(-50%, 42vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.make-visible h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1vw;
+}
+
+.configurator {
+  position: absolute;
+  width: 20vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  font-family: "Inter", sans-serif;
+  transform: translate(25vw, -30vh);
+  border-radius: 25px;
+}
+
+.configurator-section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.configurator-section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.75vw;
+  color: #111111;
+}
+
+.configurator-section-values {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  align-self: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s;
+  width: 8.5vw;
+}
+
+.item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.item-dot {
+  width: 100%;
+  height: 2vw;
+  border-radius: 10px;
+  border: solid 4px transparent;
+}
+
+.item-dot:hover {
+  border: solid 4px white;
+  box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.5); /* Grey border */
+}
+
+.item.item-active .item-dot {
+  border: solid 4px white;
+  box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.5); /* Grey border */
+}
+
+.item-label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: black;
+}
+
+
+/* LOADING SCREEN */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefeff;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.loading-screen-hidden {
+  animation: fade-out 0.25s ease-in-out forwards 0.25s;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.loading-screen-title {
+  font-family: 'Porsche', sans-serif;
+  font-weight: 500;
+  font-size: 5vw;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0;
+}
+
+.progress-container {
+  width: 100%;
+  height: 1rem;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #111111;
+  transition: width 0.25s ease-in-out;
+}
