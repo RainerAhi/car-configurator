@@ -21,12 +21,12 @@ const carColors = [
 
 const breakColors = [
   {
-    color: "#cd0133",
-    name: "Guards Red",
+    color: "#FFBF00",
+    name: "Yellow",
   },
   {
-    color: "#000000",
-    name: "Black",
+    color: "#cd0133",
+    name: "Guards Red",
   },
   {
     color: "#00194b",

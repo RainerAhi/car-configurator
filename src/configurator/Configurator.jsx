@@ -15,7 +15,42 @@ export default function Configurator () {
     setBreakColor
   } = useCustomization();
 
-  const { camera } = useThree();
+  const { camera, scene } = useThree();
+
+  const sceneRotation = useRef();
+
+  const [rotationActive, setRotationActive] = useState(false);
+
+  useEffect(() => {
+    if (rotationActive) {
+      sceneRotation.current = gsap.to(scene.rotation, {
+        duration: 10, // Duration in seconds
+        y: Math.PI * 2, // Rotate by 360 degrees
+        repeat: -1, // Infinite loop
+        ease: 'none',
+        paused: false // Ensure the animation is not paused initially
+      });
+    } else {
+      if (sceneRotation.current) {
+        gsap.to(scene.rotation, {
+          duration: 0.5, // Adjust the duration as needed
+          y: 0, // Rotate back to initial state
+          ease: 'power3.out', // Use any easing function you prefer
+          onComplete: () => {
+            sceneRotation.current.pause(); // Pause the animation after resetting
+          }
+        });
+      }
+    }
+  
+    return () => {
+      sceneRotation.current?.pause(); // Pause the animation when component unmounts
+    };
+  }, [rotationActive]); // Re-run effect when rotationActive changes
+
+  const toggleRotation = () => {
+    setRotationActive(!rotationActive);
+  };
 
   const cameraLoads = () => {
     gsap.to(camera.position, {
@@ -55,7 +90,11 @@ export default function Configurator () {
   };
 
   useEffect(() => {
-    cameraLoads();
+    const timer = setTimeout(() => {
+      cameraLoads();
+    }, 1500);
+  
+    return () => clearTimeout(timer);
   }, []);
 
   const [configuratorVisible, setConfiguratorVisible] = useState(false);
@@ -83,6 +122,12 @@ export default function Configurator () {
   const closeConfigurator = () => {
     setConfiguratorVisible(false)
     setMakeVisible(true)
+    setRotationActive(false);
+    gsap.to(scene.rotation, {
+      duration: 0.5, // Adjust the duration as needed
+      y: 0,
+      ease: 'power3.out' // Use any easing function you prefer
+    });
     cameraZoomOut()
       gsap.to(".make-visible", {
         duration: 0.5,
@@ -142,6 +187,9 @@ export default function Configurator () {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="configurator-section">
+              <div className="configurator-section-title" onClick={toggleRotation} >Rotation</div>
             </div>
           </div>
         </Html>

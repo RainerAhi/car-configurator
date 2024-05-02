@@ -6,6 +6,7 @@ import { CustomizationProvider } from "./configurator/Customization";
 import NavigationBar from "./configurator/NavigationBar";
 import Experience from "./configurator/Experience";
 import { useProgress } from "@react-three/drei";
+import Lenis from "@studio-freight/lenis";
 
 const LoadingScreen = () => {
   const { progress, active } = useProgress();
@@ -26,6 +27,28 @@ const LoadingScreen = () => {
 };
 
 function App() {
+
+  const lenis = new Lenis({
+    duration: 1,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical", 
+    smooth: true,
+    mouseMultiplier: 0.5, 
+    smoothTouch: false, 
+    touchMultiplier: 2, 
+    infinite: false 
+  });
+  
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  
+  requestAnimationFrame(raf);
+
+
+
   return (
   <>
   <LoadingScreen />
@@ -40,9 +63,11 @@ function App() {
         </div>
       </CustomizationProvider>
     </section>
-    <section>
-      
-    </section>
+    {/* <section className="two" >
+      <div className="two-content" >
+        
+      </div>
+    </section> */}
   </>
   );
 }
