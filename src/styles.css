@@ -263,3 +263,115 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+@media screen and (max-width: 768px) {
+
+  .navigation h1 {
+    color: #111111;
+    font-size: 1rem;
+    letter-spacing: 0.25vw;
+    font-family: 'Porsche', sans-serif;
+    font-weight: 500;
+  }
+
+  .make-visible {
+    position: absolute;
+    cursor: pointer;
+    color: #111111;
+    width: 50vw;
+    height: 5vh;
+    border-radius: 50px;
+    border: 1px solid #111111;
+    transform: translate(-50%, 30vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+  }
+  
+  .make-visible h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .configurator {
+    position: absolute;
+    width: 90vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fefeff50;
+    font-family: "Inter", sans-serif;
+    transform: translate(-45vw, -30vh);
+    border-radius: 25px;
+    justify-content: space-around;
+    backdrop-filter: blur(10px);
+  }
+  
+  .configurator-section {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  .configurator-section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #111111;
+    margin-bottom: 1.5vw;
+  }
+  
+  .configurator-section-values {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-self: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s;
+    width: 45%;
+  }
+  
+  .item:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  
+  .item-dot {
+    width: 100%;
+    height: 5vh;
+    border-radius: 10px;
+    border: solid 4px transparent;
+  }
+  
+  .item-dot:hover {
+    border: solid 4px white;
+    box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.5); /* Grey border */
+  }
+  
+  .item.item-active .item-dot {
+    border: solid 4px white;
+    box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.5); /* Grey border */
+  }
+  
+  .item-label {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1%;
+    color: #111111;
+    margin-top: 0.25vw;
+  }
+}
